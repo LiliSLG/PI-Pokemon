@@ -14,10 +14,12 @@ import { pokemonClear } from "./pokemon/pokemonClear";
 import {
   getPokemons,
   getPokemonById,
-  getPokemonByName,
   getPokemonsFromLocalStore,
 } from "./pokemon/pokemonGet";
 
+import {
+  getPokemonByName,
+} from "./pokemon/pokemonGetByName";
 //filtros
 import {
   pokemonApplyFilters,

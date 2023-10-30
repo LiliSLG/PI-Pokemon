@@ -11,8 +11,9 @@ import axios from "axios";
 // import dotenv from "dotenv";
 // dotenv.config();
 //SEGUN ESTE TRABAJANDO EN MI COMPU O DEPLOY
-const APIURL=null;
-axios.defaults.baseURL = process.env.APIURL || "http://localhost:3001";
+//
+const APIURL="https://pi-pokemon-dev-qfeb.3.us-1.fl0.io";
+axios.defaults.baseURL = APIURL || "http://localhost:3001";
 
 
 ReactDOM.render(
