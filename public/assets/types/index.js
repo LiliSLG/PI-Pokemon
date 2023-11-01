@@ -14,6 +14,7 @@ import normal from "./normal.svg";
 import poison from "./poison.svg";
 import psychic from "./psychic.svg";
 import rock from "./rock.svg";
+import shadow from "./shadow.svg";
 import steel from "./steel.svg";
 import water from "./water.svg";
 import unknown from "./unknown.svg";
@@ -36,6 +37,7 @@ export {
     poison,
     psychic,
     rock,
+    shadow,
     steel,
     water,
     unknown

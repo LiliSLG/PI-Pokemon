@@ -17,11 +17,10 @@ const Card = (props) => {
   };
 
   const handleSaveToBdd = (pokemon) => {
-    // try {
     dispatch(pokemonSaveToBdd(pokemon));
-    // } catch (error) {
-    //   alert("Something went wrong. Please try again later.");
-    // }
+    //hago esto para que me muestre en pantalla la actualiacion
+    pokemon.created = true;
+    pokemon.IDapi = pokemon.id;
   };
 
   const renderTypes = () => {

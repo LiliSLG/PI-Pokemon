@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useCallback, useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import style from "./TableView.module.css";
 import { renderTypeLabelsReduced } from "../../helpers/pokemonColorsByType";
-import { pokemonClose, pokemonSaveToBdd } from "../../redux/actions";
+import {
+  pokemonClose,
+  pokemonSaveToBdd,
+  pokemonSort,
+} from "../../redux/actions";
 
 const TableView = ({ pokemonData }) => {
   const dispatch = useDispatch();
@@ -15,8 +19,10 @@ const TableView = ({ pokemonData }) => {
   };
 
   const handleSaveToBdd = (pokemon) => {
-    pokemon.created = true;
     dispatch(pokemonSaveToBdd(pokemon));
+    //hago esto para que me muestre en pantalla la actualiacion
+    pokemon.created = true;
+    pokemon.IDapi = pokemon.id;
   };
 
   const handleColumnClick = (field) => {
@@ -45,9 +51,22 @@ const TableView = ({ pokemonData }) => {
         }
       });
     }
-
     return sortedData;
   }, [pokemonData, sortField, sortDirection]);
+
+  const dispatchPokemonSort = useCallback(() => {
+    if (sortField)
+      dispatch(pokemonSort(sortField, sortDirection, sortedPokemonData));
+  }, [dispatch, sortField, sortDirection, sortedPokemonData]);
+
+  /*By wrapping the function with useCallback, the function reference is memoized, 
+  meaning it will only be recreated if any of its dependencies change. This ensures that the 
+  function reference remains the same between renders as long as the dependencies stay the same. 
+  This can help prevent unnecessary re-renders of the component.*/
+
+  useEffect(() => {
+    dispatchPokemonSort();
+  }, [sortField, sortDirection]);
 
   return (
     <div className={style.tableContainer}>
@@ -55,7 +74,12 @@ const TableView = ({ pokemonData }) => {
         <thead>
           <tr>
             <th className={style.columnTitle}>N°</th>
-            <th className={style.columnTitle}>ORIGIN</th>
+            <th
+              onClick={() => handleColumnClick("created")}
+              className={style.columnTitle}
+            >
+              ORIGIN
+            </th>
             <th
               onClick={() => handleColumnClick("name")}
               className={style.columnSortTitle}
@@ -64,7 +88,7 @@ const TableView = ({ pokemonData }) => {
             </th>
             <th className={style.columnTitle}>CARD</th>
             <th
-              onClick={() => handleColumnClick("type")}
+              // onClick={() => handleColumnClick("type")}
               className={style.columnTitle}
             >
               TYPE

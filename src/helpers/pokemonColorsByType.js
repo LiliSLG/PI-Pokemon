@@ -22,16 +22,16 @@ export const colorsByType = {
 };
 
 export const colorsFontByType = {
-  bug: "rgb(7, 27, 82)",
+  bug: "#f5f5f5",
   dark: "#f5f5f5",
-  dragon: "rgb(7, 27, 82)",
+  dragon: "#f5f5f5",
   electric: "rgb(7, 27, 82)",
   fairy: "rgb(7, 27, 82)",
   fighting: "#f2f2f2",
   fire: "#f5f5f5",
   flying: "rgb(7, 27, 82)",
   ghost: "rgb(7, 27, 82)",
-  grass: "rgb(7, 27, 82)",
+  grass: "#f5f5f5",
   ground: "rgb(7, 27, 82)",
   ice: "rgb(7, 27, 82)",
   normal: "rgb(7, 27, 82)",
@@ -40,7 +40,7 @@ export const colorsFontByType = {
   rock: "rgb(7, 27, 82)",
   shadow: "#f5f5f5",
   steel: "rgb(7, 27, 82)",
-  water: "rgb(7, 27, 82)",
+  water: "#f5f5f5",
   unknown: "rgb(7, 27, 82)",
 };
 

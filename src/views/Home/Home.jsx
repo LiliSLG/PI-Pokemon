@@ -93,7 +93,7 @@ const Home = () => {
     const indexType = filterTypeOptions.findIndex(
       (type) => type.id === selectedValue
     );
-    // dispatch(pokemonApplyFilters("filterByType", selectedValue));
+    dispatch(pokemonApplyFilters("filterByType", selectedValue));
     // setRefresh(true);
   };
 

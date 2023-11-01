@@ -148,19 +148,15 @@ const pokemon = (state = initialState, action) => {
       const updatedPokemonIndex = state.pokemons.findIndex(
         (pokemon) => pokemon.id === action.payload.id
       );
-
+      const updatedPokemons = state.pokemons;
       if (updatedPokemonIndex !== -1) {
-        state.pokemons[updatedPokemonIndex] = action.payload.pokemons;
+        updatedPokemons[updatedPokemonIndex] = action.payload.pokemons;
       }
-      // const filtered = state.pokemons.filter(
-      //   (pokemon) => pokemon.id !== action.payload.idAPI
-      // );
-      // filtered.push(action.payload.pokemons);
-      // filtered.sort((a, b) => a.name.localeCompare(b.name));
+
       return {
         ...state,
-        // pokemons: [...filtered],
-        filteredPokemons: [...state.pokemons],
+        pokemons: [...updatedPokemons],
+        // filteredPokemons: [...state.pokemons],
         pokemonDetail: action.payload.pokemons,
       };
     }
@@ -226,9 +222,11 @@ const pokemon = (state = initialState, action) => {
       }
 
       if (filtros.filterByType) {
-        filteredPoks = filteredPoks.filter((pokemon) =>
-          pokemon.types.includes(filtros.filterByType)
-        );
+        filteredPoks = filteredPoks.filter((pokemon) => {
+          return pokemon.types.some(
+            (type) => type.id === +filtros.filterByType
+          );
+        });
       }
 
       if (filtros.orderByName) {
@@ -270,6 +268,13 @@ const pokemon = (state = initialState, action) => {
       };
     }
 
+    case actionTypes.SORT_POKEMONS: {
+      return {
+        ...state,
+        filteredPokemons: [...action.payload],
+      };
+    }
+
     case actionTypes.CLEAR_FILTERS: {
       return {
         ...state,
@@ -279,7 +284,10 @@ const pokemon = (state = initialState, action) => {
     }
 
     case actionTypes.GET_TYPES:
-      return { ...state, types: action.payload };
+      const sortedTypes = action.payload.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+      return { ...state, types: sortedTypes };
 
     default:
       return { ...state };
