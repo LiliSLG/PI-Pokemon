@@ -16,7 +16,7 @@ import psychic from "./psychic.svg";
 import rock from "./rock.svg";
 import steel from "./steel.svg";
 import water from "./water.svg";
-// import unknown from "./unknown.svg";
+import unknown from "./unknown.svg";
 // import ball from "./ball.svg"
 
 export {
@@ -38,5 +38,5 @@ export {
     rock,
     steel,
     water,
-    // unknown
+    unknown
   };

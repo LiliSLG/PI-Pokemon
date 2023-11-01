@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import style from "./Home.module.css";
-import { CardsContainer } from "../../components";
+import { CardsContainer, NameSearch, TableView } from "../../components";
 import { handleSetFooterAppStatus } from "../../handlers/handleFooterMessages";
 import { FilterBar, SearchBar } from "../../components/bars";
 import {
@@ -14,6 +14,12 @@ import {
 
 const Home = () => {
   const dispatch = useDispatch();
+
+  const [isTableView, setIsTableView] = useState(false);
+
+  const toggleView = () => {
+    setIsTableView(!isTableView);
+  };
 
   const filteredPokemons = useSelector(
     (state) => state.pokemon.filteredPokemons
@@ -185,19 +191,33 @@ const Home = () => {
               compareValue={filterByXvalue}
               onFilterChange={handleMultipleFilterChange}
             />
+            <div className={style.buttonContainer}>
+              <button
+                onClick={handleResetFilters}
+                className={style.createButton}
+              >
+                🧹
+              </button>
+            </div>
           </div>
-          <div className={style.buttonContainer}>
-            <button onClick={handleResetFilters} className={style.createButton}>
-              🧹
+
+          {isTableView ? (
+            <button className={style.createButton} onClick={toggleView}>
+              📄 List
             </button>
-          </div>
+          ) : (
+            <button className={style.createButton} onClick={toggleView}>
+              📅 Cards
+            </button>
+          )}
           <div className={style.buttonContainer}>
             <Link to="/create">
               <button className={style.createButton}>New Pok</button>
             </Link>
           </div>
         </div>
-        <div className={style.navsContainer}>
+        {/*<div className={style.navsContainer}>
+          <NameSearch />
           <div>
             <p>🛠️ API tools</p>
           </div>
@@ -211,10 +231,16 @@ const Home = () => {
           </div>
           <div>
             <p>get</p>
-          </div>
-        </div>
+          </div> 
+        </div>*/}
       </div>
-      <CardsContainer cards={filteredPokemons} />
+      {isTableView ? (
+        <TableView pokemonData={filteredPokemons} />
+      ) : (
+        <div>
+          <CardsContainer cards={filteredPokemons} />
+        </div>
+      )}
     </div>
   );
 };

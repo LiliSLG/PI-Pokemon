@@ -20,7 +20,7 @@ export const pokemonSaveToBdd = (pokemon) => {
         type: actionTypes.POST_POKEMON_FROM_API,
         payload: newPokemon.newPokemon[0]
       });
-      handleSetFooterAppStatus(dispatch, "POKEMON SAVED" + pokemon.name, 1);
+      handleSetFooterAppStatus(dispatch, "POKEMON SAVED " + pokemon.name, 1);
     } catch (error) {
       handleSetFooterAppStatus(dispatch, "ERROR SAVING POKEMON " + pokemon.name, 3);
       alert("Error creating a new Pokemon.", error.message);

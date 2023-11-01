@@ -16,9 +16,9 @@ const Card = (props) => {
     dispatch(pokemonClose(id));
   };
 
-  const handleSaveToBdd = (id) => {
+  const handleSaveToBdd = (pokemon) => {
     // try {
-    dispatch(pokemonSaveToBdd(id));
+    dispatch(pokemonSaveToBdd(pokemon));
     // } catch (error) {
     //   alert("Something went wrong. Please try again later.");
     // }

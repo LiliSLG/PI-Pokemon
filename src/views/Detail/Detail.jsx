@@ -8,6 +8,12 @@ import {
   pokemonDelete,
   pokemonClear,
 } from "../../redux/actions";
+import {
+  shareOnFacebook,
+  shareOnWhatsApp,
+  shareOnTwitter,
+  shareOnInstagram,
+} from "../../utils/shareSocialMedia";
 import { ProgressBar } from "../../components/bars";
 import {
   renderTypeLabels,
@@ -87,10 +93,40 @@ const Detail = () => {
               src={pokemonDetail.image}
               alt={`Imagen de ${pokemonDetail.name}`}
             />
+  
           </div>
 
           <div className={style.rigthPanel}>
-            <div className={style.closeContainer} >
+            <div className={style.closeContainer}>
+              <div className={style.socialMediaContainer}>
+                <button
+                  className={style.socialMediaBtn}
+                  onClick={() => shareOnFacebook(pokemonDetail)}
+                >
+                  <img src="/assets/socialMedia/facebook.svg" alt="Facebook" />
+                </button>
+                <button
+                  className={style.socialMediaBtn}
+                  onClick={() => shareOnInstagram(pokemonDetail)}
+                >
+                  <img
+                    src="/assets/socialMedia/Instagram.svg"
+                    alt="Instagram"
+                  />
+                </button>
+                <button
+                  className={style.socialMediaBtn}
+                  onClick={() => shareOnTwitter(pokemonDetail)}
+                >
+                  <img src="/assets/socialMedia/twitter.svg" alt="Twitter" />
+                </button>
+                <button
+                  className={style.socialMediaBtn}
+                  onClick={() => shareOnWhatsApp(pokemonDetail)}
+                >
+                  <img src="/assets/socialMedia/Whatsapp.svg" alt="Facebook" />
+                </button>
+              </div>
               <button
                 id="buttonClose"
                 className={style.closeBtn}

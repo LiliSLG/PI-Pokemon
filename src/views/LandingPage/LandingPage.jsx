@@ -9,9 +9,10 @@ const LandingPage = () => {
         alt="Logo"
         className={style.logo}
       />
-      {/* <h1>Landing Page</h1> */}
+      {/* <h2>Landing Page</h2>  */}
       <Link className={style.navbar_links} to="/home">
-        <p className={style.navbar_brand}>ENTER</p>
+        <button className={style.navbar_button}>ENTER</button>
+        {/* <p className={style.navbar_brand}>ENTER</p> */}
       </Link>
       <h3 className={style.footer}>Proyecto individual de Bootcamp HENRY</h3>
     </div>

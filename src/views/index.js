@@ -4,5 +4,6 @@ import LandingPage from "./LandingPage/LandingPage";
 import Detail from "./Detail/Detail";
 import NotFound404Page from "./NotFound404Page/NotFound404Page";
 import About from "./About/About";
+import TableView from "../components/TableView/TableView";
 
-export { Detail, Form, Home, LandingPage, NotFound404Page, About };
+export { Detail, Form, Home, LandingPage, NotFound404Page, About, TableView };

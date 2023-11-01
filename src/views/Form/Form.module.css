@@ -36,11 +36,24 @@ body {
   transition: 400ms;
   filter: drop-shadow(5px -4px 10px rgba(0, 0, 0, 0.5));
   margin-top: 15px;
+  animation: floating 3s ease-in-out infinite;
 }
 
-.leftPanel:hover img {
-  transform: rotate(-15deg);
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
+
+/* .leftPanel:hover img {
+  transform: rotate(-15deg);
+} */
 
 .titleName {
   font-size: 30px;
