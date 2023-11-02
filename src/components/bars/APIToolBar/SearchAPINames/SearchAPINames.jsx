@@ -130,6 +130,14 @@ const SearchAPINames = () => {
         <button className={style.buttonSubmit} onClick={handleSearch}>
           Search
         </button>
+        <div>
+          <input
+            type="checkbox"
+            checked={false}
+            onClick={() => handleCancel()}
+          />
+          <span className={style.namePokemon}>Limpiar busqueda</span>
+        </div>
       </div>
     </div>
   );
