@@ -96,7 +96,7 @@ const pokemon = (state = initialState, action) => {
       };
 
     case actionTypes.PUT_POKEMON: {      
-      const updatedPokemonIndex = state.pokemons.findIndex(
+      let updatedPokemonIndex = state.pokemons.findIndex(
         (pokemon) => pokemon.id === action.payload.id
       );
 
@@ -104,7 +104,7 @@ const pokemon = (state = initialState, action) => {
         state.pokemons[updatedPokemonIndex] = action.payload;
       }
 
-      const updatedPokemonIndex = state.filteredPokemons.findIndex(
+      updatedPokemonIndex = state.filteredPokemons.findIndex(
         (pokemon) => pokemon.id === action.payload.id
       );
 
