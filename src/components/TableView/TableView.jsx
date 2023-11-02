@@ -8,6 +8,7 @@ import {
   pokemonSaveToBdd,
   pokemonSort,
 } from "../../redux/actions";
+import { Tooltip } from "../";
 
 const TableView = ({ pokemonData }) => {
   const dispatch = useDispatch();
@@ -78,13 +79,13 @@ const TableView = ({ pokemonData }) => {
               onClick={() => handleColumnClick("created")}
               className={style.columnTitle}
             >
-              ORIGIN
+              <Tooltip text="Click to sort">ORIGIN</Tooltip>
             </th>
             <th
               onClick={() => handleColumnClick("name")}
               className={style.columnSortTitle}
             >
-              NAME
+              <Tooltip text="Click to sort">NAME</Tooltip>
             </th>
             <th className={style.columnTitle}>CARD</th>
             <th
@@ -97,31 +98,31 @@ const TableView = ({ pokemonData }) => {
               onClick={() => handleColumnClick("height")}
               className={style.columnSortTitle}
             >
-              HEIGHT
+              <Tooltip text="Click to sort">HEIGHT</Tooltip>
             </th>
             <th
               onClick={() => handleColumnClick("weight")}
               className={style.columnSortTitle}
             >
-              WEIGHT
+              <Tooltip text="Click to sort">WEIGHT</Tooltip>
             </th>
             <th
               onClick={() => handleColumnClick("hp")}
               className={style.columnSortTitle}
             >
-              HIT POINTS
+              <Tooltip text="Click to sort">HIT POINTS</Tooltip>
             </th>
             <th
               onClick={() => handleColumnClick("attack")}
               className={style.columnSortTitle}
             >
-              ATTACK
+              <Tooltip text="Click to sort">ATTACK</Tooltip>
             </th>
             <th
               onClick={() => handleColumnClick("defense")}
               className={style.columnSortTitle}
             >
-              DEFENSE
+              <Tooltip text="Click to sort">DEFENSE</Tooltip>
             </th>
             <th className={style.columnTitle}>CLOSE</th>
           </tr>
@@ -136,7 +137,7 @@ const TableView = ({ pokemonData }) => {
                     className={style.clickIcon}
                     onClick={() => handleSaveToBdd(pokemon)}
                   >
-                    🩶
+                    <Tooltip text="Click to get a favorite">🩶</Tooltip>
                   </td>
                 )}
                 {pokemon.created && (
@@ -151,7 +152,7 @@ const TableView = ({ pokemonData }) => {
                   <td
                     className={style.clickIcon} //📷
                   >
-                    🪪
+                    <Tooltip text="Click to see a card">🪪</Tooltip>
                   </td>
                 </Link>
                 <td className={style.cellStyle}>
@@ -166,7 +167,7 @@ const TableView = ({ pokemonData }) => {
                   className={style.clickIcon}
                   onClick={() => handleClose(pokemon.id)}
                 >
-                  ✖️
+                  <Tooltip text="Click to close">✖️</Tooltip>
                 </td>
               </tr>
             ))

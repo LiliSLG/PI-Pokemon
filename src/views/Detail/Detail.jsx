@@ -14,11 +14,12 @@ import {
   shareOnTwitter,
   shareOnInstagram,
 } from "../../utils/shareSocialMedia";
-import { ProgressBar } from "../../components/bars";
 import {
   renderTypeLabels,
   colorsByType,
 } from "../../helpers/pokemonColorsByType";
+import { ProgressBar } from "../../components/bars";
+import {Tooltip} from "../../components"
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -98,6 +99,7 @@ const Detail = () => {
 
           <div className={style.rigthPanel}>
             <div className={style.closeContainer}>
+            {/* <Tooltip text="Click to share this pokemon in social media">*/}
               <div className={style.socialMediaContainer}>
                 <button
                   className={style.socialMediaBtn}
@@ -127,6 +129,7 @@ const Detail = () => {
                   <img src="/assets/socialMedia/Whatsapp.svg" alt="Facebook" />
                 </button>
               </div>
+              {/* </Tooltip> */}
               <button
                 id="buttonClose"
                 className={style.closeBtn}

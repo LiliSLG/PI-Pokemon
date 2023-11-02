@@ -1,7 +1,7 @@
 const PAGINATION_DATA_KEY = "paginationData";
 const POKEMON_DATA_KEY = "pokemonData";
 const TYPE_DATA_KEY = "typeData";
-
+const POKEMON_NAMES_KEY = "pokemonNameData";
 
 export const savePaginationDataToLocalStorage = (data) => {
   localStorage.setItem(PAGINATION_DATA_KEY, JSON.stringify(data));
@@ -22,6 +22,15 @@ export const loadPokemonsStateFromLocalStorage = () => {
   return data ? JSON.parse(data) : null;
 };
 
+export const savePokemonsNamesToLocalStorage = (pokemonNames) => {
+  // Save the JSON string to the local storage with a key
+  localStorage.setItem(POKEMON_NAMES_KEY, JSON.stringify(pokemonNames));
+};
+
+export const loadPokemonsNamesFromLocalStorage = () => {
+  const data = localStorage.getItem(POKEMON_NAMES_KEY);
+  return data ? JSON.parse(data) : null;
+};
 
 export const saveTypesStateToLocalStorage = (types) => {
   // Save the JSON string to the local storage with a key

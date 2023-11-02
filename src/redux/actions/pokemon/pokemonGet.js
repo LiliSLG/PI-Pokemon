@@ -34,7 +34,7 @@ export const getPokemons = (page, pageSize) => {
         1,
         true
       );
-      handleSetFooterAppStatus(dispatch, "POKEMONS LOADED", 1);
+      handleSetFooterAppStatus(dispatch, "-->" + pokemon.data.pokemons.length + " POKEMONS LOADED", 1);
     } catch (error) {
       handleSetFooterAppStatus(dispatch, "ERROR LOADING POKEMONS", 3);
       alert("Error loading Pokemons. " + error.message);

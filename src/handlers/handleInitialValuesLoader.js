@@ -18,7 +18,7 @@ export const loadPokemonInitialValues = async (dispatch) => {
   } else {
     dispatch(getTypes()); //si no los tengo en localstore los busco en la bdd
   }
-  dispatch(getPokemons(1, 50));
+  dispatch(getPokemons(1, 60));
   handleAddFooterMessage(
     dispatch,
     "API_P",

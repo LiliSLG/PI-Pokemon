@@ -24,11 +24,15 @@
 
 .searchButton {
   padding: 5px 10px;
-  background-color: #007bff;
+  /* background-color: #007bff; */
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-color: rgb(81, 190, 190);
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .orderPanel {
@@ -37,16 +41,19 @@
 
 .orderButton {
   padding: 5px 10px;
-  background-color: #007bff;
+  background-color: rgb(81, 190, 190);
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 .active {
   background-color: #fff;  
-  color: #007bff;
+  color: rgb(81, 190, 190);
 }
 /* .searchBar {
     display: flex;

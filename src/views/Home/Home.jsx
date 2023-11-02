@@ -2,15 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import style from "./Home.module.css";
-import { CardsContainer, NameSearch, TableView } from "../../components";
+import { CardsContainer, TableView } from "../../components";
 import { handleSetFooterAppStatus } from "../../handlers/handleFooterMessages";
-import { FilterBar, SearchBar } from "../../components/bars";
+import { FilterBar, SearchBar, APIToolBar } from "../../components/bars";
 import {
   getPokemonByName,
   pokemonApplyFilters,
   pokemonApplyMultipleFilters,
   resetFilters,
+  getPokemonByNames,
+  getPokemonByNamesHELP,
 } from "../../redux/actions";
+import { Tooltip } from "../../components";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -24,6 +27,11 @@ const Home = () => {
   const filteredPokemons = useSelector(
     (state) => state.pokemon.filteredPokemons
   );
+  const totalPokemonsFilter = useSelector(
+    (state) => state.pokemon.filteredPokemons.length
+  );
+
+  const [displayedPokemons, setDisplayedPokemons] = useState([]);
 
   const filterTypeOptions = useSelector((state) => state.pokemon.types);
 
@@ -36,6 +44,10 @@ const Home = () => {
   const [filterByXOK, setFilterByXOK] = useState({});
   // const [refresh, setRefresh] = useState(false);
 
+  // const handleAPIPaginate = (pageNumber) => {
+  //   setCurrentPage(pageNumber);
+  // };
+
   const handleResetFilters = () => {
     dispatch(resetFilters());
     setFilterByName("");
@@ -47,6 +59,10 @@ const Home = () => {
     setFilterByXOK({});
   };
 
+  useEffect(() => {
+    setDisplayedPokemons(filteredPokemons);
+  }, [totalPokemonsFilter]);
+
   // useEffect(() => {
   //   setFilteredCards(pokemons);
   //   resetFilters();
@@ -56,11 +72,14 @@ const Home = () => {
   //   setRefresh(false);
   // }, [refresh]);
 
+
+
   const handleClickSearch = () => {
-    // if (filterByName !== "") {
-    //   //busco en la api
-    //   dispatch(getPokemonByName(filterByName));
-    //   setRefresh(true);
+    if (filterByName !== "") {
+      //busco en la api
+      dispatch(getPokemonByName(filterByName));
+      // setRefresh(true);
+    }
   };
 
   const handleChangeSearch = (searchTerm) => {
@@ -194,51 +213,40 @@ const Home = () => {
             <div className={style.buttonContainer}>
               <button
                 onClick={handleResetFilters}
-                className={style.createButton}
+                className={style.cleanButton}
               >
-                🧹
+                <Tooltip text="Clean filters">Clean </Tooltip>
               </button>
             </div>
           </div>
-
-          {isTableView ? (
-            <button className={style.createButton} onClick={toggleView}>
-              📄 List
-            </button>
-          ) : (
-            <button className={style.createButton} onClick={toggleView}>
-              📅 Cards
-            </button>
-          )}
+          <Tooltip text="Toggle view">
+            {isTableView ? (
+              <button className={style.createButton} onClick={toggleView}>
+                📅 Cards
+              </button>
+            ) : (
+              <button className={style.createButton} onClick={toggleView}>
+                📄 List
+              </button>
+            )}
+          </Tooltip>
           <div className={style.buttonContainer}>
             <Link to="/create">
-              <button className={style.createButton}>New Pok</button>
+              <Tooltip text="Create a new Pokemon">
+                <button className={style.createButton}>New Pok</button>
+              </Tooltip>
             </Link>
           </div>
         </div>
-        {/*<div className={style.navsContainer}>
-          <NameSearch />
-          <div>
-            <p>🛠️ API tools</p>
-          </div>
-          <div className={style.buttonContainer}>
-            <button
-            // onClick={handleResetFilters}
-            // className={style.createButton}
-            >
-              🔎 Search by Name
-            </button>
-          </div>
-          <div>
-            <p>get</p>
-          </div> 
-        </div>*/}
+      </div>
+      <div>
+        <APIToolBar />
       </div>
       {isTableView ? (
-        <TableView pokemonData={filteredPokemons} />
+        <TableView pokemonData={displayedPokemons} />
       ) : (
         <div>
-          <CardsContainer cards={filteredPokemons} />
+          <CardsContainer cards={displayedPokemons} />
         </div>
       )}
     </div>

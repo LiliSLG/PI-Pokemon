@@ -4,5 +4,6 @@ import FilterBar from "./FilterBar/FilterBar";
 import SearchBar from "./SearchBar/SearchBar";
 import PaginateBar from "./PaginateBar/PaginateBar";
 import FooterBar from "./FooterBar/FooterBar";
+import APIToolBar from "./APIToolBar/APIToolBar";
 
-export { NavBar, FooterBar, FilterBar, SearchBar, PaginateBar, ProgressBar };
+export { NavBar, FooterBar, FilterBar, SearchBar, PaginateBar, ProgressBar, APIToolBar };

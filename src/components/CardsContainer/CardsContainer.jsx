@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import style from "./CardsContainer.module.css";
-import { getPokemons } from "../../redux/actions";
+
 import { Card } from "../";
 import { PaginateBar } from "../bars";
 import {
@@ -31,9 +31,10 @@ const CardsContainer = (props) => {
 
   let currentCards = cards.slice(indexOfFirstCard, indexOfLastCard);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [appStatus]);
+  // useEffect(() => {
+  //   setCurrentPage(1);
+  // // }, [cards.length]);
+  // }, [appStatus]);
 
   return (
     <div>
@@ -49,6 +50,14 @@ const CardsContainer = (props) => {
         {currentCards.map((card) => (
           <Card key={card.id} pokemon={card} />
         ))}
+      </div>
+      <div style={{  marginBottom: "50px" }}>
+        <PaginateBar
+          currentPage={currentPage}
+          cardsPerPage={cardsPerPage}
+          cardsTotal={cards.length}
+          handleOriginPaginate={handlePaginate}
+        />
       </div>
     </div>
   );

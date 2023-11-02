@@ -12,20 +12,22 @@
   /* flex: 1 1 auto; */
   display: flex;
   width: 50px;
+  height: 30px;
   /* flex-basis: 8% */
   /* flex-grow: 4 */
 }
-
 
 .filterSelect {
   width: 100%;
   padding: 5px;
   border: none;
+  height: 30px;
   border-radius: 3px;
 }
 
 .inputValue {
-  width: 40px;
+  width: 50px;
+  height: 30px;
   background-color: aliceblue;
 }
 

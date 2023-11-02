@@ -15,10 +15,13 @@ import {
   getPokemons,
   getPokemonById,
   getPokemonsFromLocalStore,
+  getPokemonsFromAPI
 } from "./pokemon/pokemonGet";
 
 import {
   getPokemonByName,
+  getPokemonByNames, 
+  getPokemonByNamesHELP
 } from "./pokemon/pokemonGetByName";
 //filtros
 import {
@@ -51,6 +54,9 @@ export {
   getPokemons,
   getPokemonById,
   getPokemonByName,
+  getPokemonByNames,
+  getPokemonByNamesHELP,
+  getPokemonsFromAPI,
   pokemonSort,
   pokemonApplyFilters,
   pokemonApplyMultipleFilters,

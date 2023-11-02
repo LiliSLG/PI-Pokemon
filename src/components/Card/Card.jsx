@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import style from "./Card.module.css";
 import { colorsByType } from "../../helpers/pokemonColorsByType";
 import { pokemonClose, pokemonSaveToBdd } from "../../redux/actions";
+import { Tooltip } from "../";
 
 const Card = (props) => {
   const { pokemon } = props;
@@ -59,7 +60,7 @@ const Card = (props) => {
               className={style.closeBtn}
               onClick={() => handleClose(pokemon.id)}
             >
-              ✖️
+              <Tooltip text="Click to close">✖️</Tooltip>
             </button>
             {pokemon.created ? (
               pokemon.idAPI ? (
@@ -77,7 +78,7 @@ const Card = (props) => {
                 className={style.saveFavorite}
                 onClick={() => handleSaveToBdd(pokemon)}
               >
-                🩶
+                <Tooltip text="Click to get a favorite">🩶</Tooltip>
               </button>
             )}
           </div>

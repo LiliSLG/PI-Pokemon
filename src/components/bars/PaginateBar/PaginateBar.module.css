@@ -11,12 +11,17 @@
 .paginationBar button {
   margin-left: 5px;
   padding: 5px 5px;
-  background-color: #00b4db;
+  /* background-color: #00b4db; */
   color: #fff;
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  background-color: rgb(81, 190, 190);
+  &:hover {
+    transform: scale(1.2);
+  }
 }
+
 
 .paginationBar button:first-child {
   margin-left: 0;
@@ -32,13 +37,14 @@
 }
 
 .paginationBar button.active {
-  background-color: #fff;  
-  color: #00b4db;
+  background-color: #fff;
+  /* color: #00b4db; */
+  color: rgb(0, 128, 128);
 }
 
 .paginationBar button:focus {
   outline: none;
-} 
+}
 
 /* .card_list {
   width: 75vw;

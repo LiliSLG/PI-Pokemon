@@ -1,0 +1,30 @@
+.tooltipContainer {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8f0af;
+    color: #5c5b5b;
+    font-weight: lighter;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
+  }

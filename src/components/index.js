@@ -1,6 +1,6 @@
 import CardsContainer from "./CardsContainer/CardsContainer";
 import Card from "./Card/Card";
-import NameSearch from "./SearchNames/NameSearch";
 import TableView from "./TableView/TableView";
+import Tooltip from "./ToolTip/ToolTip";
 
-export { CardsContainer, Card, NameSearch, TableView };
+export { CardsContainer, Card, TableView, Tooltip };

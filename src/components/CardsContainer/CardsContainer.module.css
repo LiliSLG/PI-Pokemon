@@ -4,7 +4,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
   overflow: auto;
-  margin-bottom: 100px; /* Ajusta el margen inferior entre los componentes */
+  margin-bottom: 50px; /* Ajusta el margen inferior entre los componentes */
   margin-top: 10px;
 }
 

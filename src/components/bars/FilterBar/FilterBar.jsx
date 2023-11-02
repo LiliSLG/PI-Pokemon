@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./FilterBar.module.css";
+import { Tooltip } from "../../";
 
 const FilterBar = ({
   options,
@@ -36,28 +37,33 @@ const FilterBar = ({
           </option>
         ))}
       </select>
+
       {isMultiple && (
-        <select
-          id="operator"
-          name="operator"
-          value={operator}
-          onChange={onFilterChange}
-          className={style.filterOp}
-        >
-          <option value=">=">≥</option>
-          <option value="=">=</option>
-          <option value="<=">≤</option>
-        </select>
+        <Tooltip text="Select operator to compare">
+          <select
+            id="operator"
+            name="operator"
+            value={operator}
+            onChange={onFilterChange}
+            className={style.filterOp}
+          >
+            <option value=">=">≥</option>
+            <option value="=">=</option>
+            <option value="<=">≤</option>
+          </select>
+        </Tooltip>
       )}
       {isMultiple && (
-        <input
-          id="compareValue"
-          name="compareValue"
-          type="number"
-          value={compareValue}
-          onChange={onFilterChange}
-          className={style.inputValue}
-        />
+        <Tooltip text="Type a value to compare">
+          <input
+            id="compareValue"
+            name="compareValue"
+            type="number"
+            value={compareValue}
+            onChange={onFilterChange}
+            className={style.inputValue}
+          />{" "}
+        </Tooltip>
       )}
     </div>
   );

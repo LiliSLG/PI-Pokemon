@@ -6,11 +6,12 @@ const initialState = {
   filteredPokemons: [],
   filter: {}, //filterByName: "", filterByOrigin: ""
   types: [],
+  pokemonNamesHelp: [],
   pagination: {
     totalPokemonsDB: 0,
     totalPokemonsAPI: 0,
-    currentPageNumber: 0,
-    currentPageNumberAPI: 1,
+    // currentPageNumber: 0,
+    // currentPageNumberAPI: 1,
     pokemonsPerPage: 12, //la cantidad de pokemones por pagina, tanto de la bdd como api quedan fijos
     pokemonsPerPageAPI: 50, // despues veo si llego a crear un lugar para que el usuario pueda modificarlo
   },
@@ -20,7 +21,7 @@ const pokemon = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_POKEMONS: {
       const { totalPokemonsDB, totalPokemonsAPI } = action.payload;
-      const currentPageNumberAPI = state.pagination.currentPageNumberAPI + 1;
+      // const currentPageNumberAPI = state.pagination.currentPageNumberAPI + 1;
       const newPokemons = state.pokemons;
       newPokemons.push(...action.payload.pokemons);
       newPokemons.sort((a, b) => a.name.localeCompare(b.name));
@@ -30,7 +31,7 @@ const pokemon = (state = initialState, action) => {
         filteredPokemons: newPokemons,
         pagination: {
           ...state.pagination,
-          currentPageNumberAPI,
+          // currentPageNumberAPI,
           totalPokemonsDB,
           totalPokemonsAPI,
         },
@@ -49,11 +50,14 @@ const pokemon = (state = initialState, action) => {
         ),
       ];
       newAPIPokemons.push(...action.payload.pokemons);
-      newAPIPokemons.sort((a, b) => a.name.localeCompare(b.name));
+      // newAPIPokemons.sort((a, b) => a.name.localeCompare(b.name));
       return {
         ...state,
         pokemons: uniquePokemons,
-        filteredPokemons: [...action.payload.pokemons],
+        filteredPokemons: [
+          ...action.payload.pokemons,
+          ...state.filteredPokemons,
+        ],
       };
     }
 
@@ -61,22 +65,22 @@ const pokemon = (state = initialState, action) => {
       return { ...state, pokemonDetail: action.payload };
 
     case actionTypes.GET_POKEMON_BY_NAME: {
-      // busca si lo tengo en el estado, si no esta, lo agrego
-      const foundPokemon = state.pokemons.find(
-        (pokemon) => pokemon.id === action.payload.id
-      );
-      if (!foundPokemon) {
-        return {
-          ...state,
-          filteredPokemons: action.payload,
-          pokemons: [...state.pokemons, ...action.payload],
-        };
-      } else {
-        return {
-          ...state,
-          pokemonDetail: action.payload,
-        };
-      }
+      return {
+        ...state,
+        // pokemonDetail: action.payload,
+        pokemons: [...state.pokemons, ...action.payload],
+        filteredPokemons: [
+          ...action.payload,
+          ...state.filteredPokemons,
+        ],
+      };
+    }
+
+    case actionTypes.GET_POKEMON_NAMES_HELP: {
+      return {
+        ...state,
+        pokemonNamesHelp: action.payload,
+      };
     }
 
     case actionTypes.POST_POKEMON:
