@@ -6,8 +6,8 @@ const About = () => {
     <div className={style.container}>
       <h2 className={style.title}>About this application</h2>
       <p className={style.text}>
-        Welcome to our Pokémon SPA! This application allows you to explore and
-        discover information about various Pokémon.
+        Welcome to our Pokémon World! This app allows you to explore and
+        discover information about Pokémons.
       </p>
       <p className={style.text}>
         This Single Page Application was created using the following tecnologies: <b>React</b>, <b>JavaScript</b>,{" "}

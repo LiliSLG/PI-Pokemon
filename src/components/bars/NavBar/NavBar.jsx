@@ -15,8 +15,12 @@ const NavBar = () => {
         <Link className={style.navbar_links} to="/home">
           <p className={style.navbar_brand}>HOME</p>
         </Link>
-        {/* <Link className={style.navbar_links} to="/create">Create</Link> */}
-
+        <Link className={style.navbar_links} to="/login">
+          <p className={style.navbar_brand}>LOGIN</p>
+        </Link>
+        <Link className={style.navbar_links} to="/register">
+          <p className={style.navbar_brand}>REGISTRO</p>
+        </Link>
         <Link className={style.navbar_links} to="/about">
           <p className={style.navbar_brand}>ABOUT</p>
         </Link>

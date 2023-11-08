@@ -31,9 +31,9 @@ const CardsContainer = (props) => {
 
   let currentCards = cards.slice(indexOfFirstCard, indexOfLastCard);
 
-  // useEffect(() => {
-  //   setCurrentPage(1);
-  // // }, [cards.length]);
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [cards.length]);
   // }, [appStatus]);
 
   return (
@@ -51,7 +51,7 @@ const CardsContainer = (props) => {
           <Card key={card.id} pokemon={card} />
         ))}
       </div>
-      <div style={{  marginBottom: "50px" }}>
+      <div style={{ marginBottom: "50px" }}>
         <PaginateBar
           currentPage={currentPage}
           cardsPerPage={cardsPerPage}

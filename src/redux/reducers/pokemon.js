@@ -263,7 +263,7 @@ const pokemon = (state = initialState, action) => {
 
       let filteredPoks = state.pokemons;
       const strFunction =
-        "(pokemon) => pokemon." +
+        "pokemon => pokemon." +
         filterByX +
         " " +
         filterByXoperator +

@@ -15,13 +15,13 @@ import {
   getPokemons,
   getPokemonById,
   getPokemonsFromLocalStore,
-  getPokemonsFromAPI
+  getPokemonsFromAPI,
 } from "./pokemon/pokemonGet";
 
 import {
   getPokemonByName,
-  getPokemonByNames, 
-  getPokemonByNamesHELP
+  getPokemonByNames,
+  getPokemonByNamesHELP,
 } from "./pokemon/pokemonGetByName";
 //filtros
 import {
@@ -34,6 +34,9 @@ import { pokemonSort } from "./pokemon/pokemonSort";
 
 //types
 import { getTypes, getTypesFromLocalStore } from "./types";
+
+//user
+import { registerUser, loginUser } from "./user.js";
 
 //footer messages
 import {
@@ -69,4 +72,6 @@ export {
   updateMessage,
   getTypesFromLocalStore,
   getPokemonsFromLocalStore,
+  registerUser,
+  loginUser,
 };

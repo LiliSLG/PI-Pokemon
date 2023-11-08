@@ -1,16 +1,15 @@
 .paginationBar {
-  /* flex: 1; */
   display: flex;
   flex-basis: 22%;
   justify-content: center;
-  /* flex-grow: 4 */
   margin-bottom: 20px; /* Ajusta el margen inferior entre los componentes */
   margin-top: 10px;
 }
 
 .paginationBar button {
-  margin-left: 5px;
-  padding: 5px 5px;
+  margin-left: 1px;
+  margin-right: 1px;
+  padding: 5px;
   /* background-color: #00b4db; */
   color: #fff;
   border: none;
@@ -22,6 +21,27 @@
   }
 }
 
+.pageNumbers {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.paginationBar input {
+  text-align: center;
+  border: none;
+}
+
+.paginationBar span {
+  background-color: #fff;
+  color: grey;
+  font-size: 10px;
+  border: none;
+  padding: 5px;
+  text-align: center;
+}
 
 .paginationBar button:first-child {
   margin-left: 0;

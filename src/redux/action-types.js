@@ -34,22 +34,10 @@ export const actionTypes = {
   ADD_MESSAGE: "ADD_MESSAGE",
   DELETE_MESSAGE: "DELETE_MESSAGE",
   UPDATE_MESSAGE: "UPDATE_MESSAGE",
+
+  //USER LOGIN  
+  LOGIN_REQUEST: "LOGIN_REQUEST",
+  LOGIN_SUCCESS: "LOGIN_SUCCESS",
+  LOGIN_FAILURE: "LOGIN_FAILURE",
+  LOGOUT: "LOGOUT",
 };
-
-// //pokemons
-// export const GET_POKEMONS = "GET_POKEMONS";
-// export const GET_POKEMON_BY_ID = "GET_POKEMON_BY_ID";
-// export const GET_POKEMON_BY_NAME = "GET_POKEMON_BY_NAME";
-
-// export const POST_POKEMON = "POST_POKEMON";
-// export const PUT_POKEMON = "PUT_POKEMON";
-// export const DEL_POKEMON = "DEL_POKEMON";
-
-// export const FILTER_BY_SOURCE = "FILTER_BY_SOURCE";
-
-// //pagination
-// export const SET_PAGINATION_DATA = "SET_PAGINATION_DATA";
-// export const SET_USER_PAGINATION_DATA = "SET_USER_PAGINATION_DATA";
-
-// //types
-// export const GET_TYPES = "GET_TYPES";

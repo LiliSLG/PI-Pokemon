@@ -49,7 +49,7 @@ export const pokemonApplyMultipleFilters =
       });
       handleSetFooterAppStatus(
         dispatch,
-        `FILTERED BY ${filterByXoperator + " " + filterByXvalue}`,
+        `FILTERED BY ${filterByX + " " + filterByXoperator + " " + filterByXvalue}`,
         1
       );
       return Promise.resolve();
