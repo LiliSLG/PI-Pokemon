@@ -20,15 +20,15 @@ export function validate(userData) {
   const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
   const regexletrasynumeros = new RegExp(/^(?:.*\d){1}/);
   // const regexCaracteresInvalidos = new RegExp(/^(?:.*?[#?!@$ %^&*-])/);
-  const errors = { email: "", password: "" };
-  if (!regexEmail.test(userData.email)) {
-    errors.email = "Debe ser un correo electrónico";
+  const errors = { eMail: "", password: "" };
+  if (!regexEmail.test(userData.eMail)) {
+    errors.eMail = "Debe ser un correo electrónico";
   }
-  if (!userData.email.length) {
-    errors.email = "Se requiere un email";
+  if (!userData.eMail.length) {
+    errors.eMail = "Se requiere un email";
   }
   if (userData.password.length > 35) {
-    errors.email = "No puede tener mas de 35 caracteres";
+    errors.eMail = "No puede tener mas de 35 caracteres";
   }
   if (!regexletrasynumeros.test(userData.password)) {
     errors.password = "Debe tener al menos un numero";
@@ -49,7 +49,7 @@ export function validateNewUser(userData) {
   // const regexCaracteresInvalidos = new RegExp(/^(?:.*?[#?!@$ %^&*-])/);
   const errors = {
     fullName: "",
-    email: "",
+    eMail: "",
     password: "",
     confirmPassword: "",
   };
@@ -61,15 +61,15 @@ export function validateNewUser(userData) {
     errors.fullName = "No puede tener mas de 35 caracteres";
   }
 
-  if (!regexEmail.test(userData.email)) {
-    errors.email = "Debe ser un correo electrónico";
+  if (!regexEmail.test(userData.eMail)) {
+    errors.eMail = "Debe ser un correo electrónico";
   }
-  if (!userData.email.length) {
-    errors.email = "Se requiere un email";
+  if (!userData.eMail.length) {
+    errors.eMail = "Se requiere un email";
   }
 
   if (userData.password.length > 35) {
-    errors.email = "No puede tener mas de 35 caracteres";
+    errors.eMail = "No puede tener mas de 35 caracteres";
   }
   if (!regexletrasynumeros.test(userData.password)) {
     errors.password = "Debe tener al menos un numero";

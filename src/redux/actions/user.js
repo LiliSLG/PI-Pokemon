@@ -1,21 +1,20 @@
 import axios from "axios";
-import { URL_API } from "../../constants";
+import { URL_API_USER } from "../../constants";
 import { actionTypes } from "../action-types";
 import { setToken } from "../../utils/tokenUtils";
 
 export const loginUser = (user) => {
-  const { email, password } = user;
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.LOGIN_REQUEST });
-      const endpoint = `${URL_API}/user/login/?email=${email}&password=${password}`;
-      const response = await axios(endpoint);
+      const endpoint = `${URL_API_USER}/login`;
+      const response = await axios.post(endpoint, user);
       const { token } = response.data;
       if (token) {
         setToken(token);
         dispatch({
           type: actionTypes.LOGIN_SUCCESS,
-          payload: email,
+          payload: user.email,
         });
       }
     } catch (error) {
@@ -27,7 +26,7 @@ export const loginUser = (user) => {
 
 export const registerUser = (user) => {
   const { fullName, email, password } = user;
-  const endpoint = `${URL_API}/user/register/?fullName=${fullName}&email=${email}&password=${password}`;
+  const endpoint = `${URL_API_USER}/user/register/?fullName=${fullName}&email=${email}&password=${password}`;
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.LOGIN_REQUEST });

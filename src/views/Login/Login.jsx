@@ -14,12 +14,12 @@ const Login = () => {
   const isLoggedIn = useSelector((state) => state.access);
 
   const [userData, setUserData] = React.useState({
-    email: "",
+    eMail: "",
     password: "",
   });
 
   const [errors, setErrors] = React.useState({
-    email: "",
+    eMail: "",
     password: "",
   });
 
@@ -31,11 +31,11 @@ const Login = () => {
 
   const handleClickDefaultInputs = (event) => {
     if (event.target.checked) {
-      setUserData({ email: EMAIL_DEFAULT, password: PASSWORD_DEFAULT });
-      setErrors({ email: "", password: "" });
+      setUserData({ eMail: EMAIL_DEFAULT, password: PASSWORD_DEFAULT });
+      setErrors({ eMail: "", password: "" });
       setInputsOk(true);
     } else {
-      setUserData({ email: "", password: "" });
+      setUserData({ eMail: "", password: "" });
     }
   };
 
@@ -47,9 +47,9 @@ const Login = () => {
 
   useEffect(() => {
     setInputsOk(
-      errors.email === "" &&
+      errors.eMail === "" &&
         errors.password === "" && //no hay errores
-        userData.email !== "" &&
+        userData.eMail !== "" &&
         userData.password !== "" // hay datos en los inputs
     );
   }, [errors, userData]);
@@ -67,14 +67,14 @@ const Login = () => {
           {/* <label htmlFor='email'>Correo Electrónico:</label><br /> */}
           <input
             class={styles.campo}
-            name="email"
-            value={userData.email}
-            className={errors.email && styles.warning}
+            name="eMail"
+            value={userData.eMail}
+            className={errors.eMail && styles.warning}
             placeholder="Email..."
             type="text"
             onChange={handleChange}
           />
-          <p className={errors.email && styles.danger}>{errors.email}</p>
+          <p className={errors.eMail && styles.danger}>{errors.eMail}</p>
           {/* <label htmlFor='password'>Password:</label><br /> */}
           <div className={styles.campo}>
             <input
