@@ -15,14 +15,14 @@ const Register = () => {
 
   const [newUserData, setNewUserData] = React.useState({
     fullName: "",
-    email: "",
+    eMail: "",
     password: "",
     confirmPassword: "",
   });
 
   const [errors, setErrors] = React.useState({
     fullName: "",
-    email: "",
+    eMail: "",
     password: "",
     confirmPassword: "",
   });
@@ -46,11 +46,11 @@ const Register = () => {
   useEffect(() => {
     setInputsOk(
       errors.fullName === "" &&
-        errors.email === "" &&
+        errors.eMail === "" &&
         errors.password === "" &&
         errors.confirmPassword === "" && //no hay errores
         newUserData.fullName !== "" &&
-        newUserData.email !== "" &&
+        newUserData.eMail !== "" &&
         newUserData.password !== "" &&
         newUserData.confirmPassword !== ""
       // hay datos en los inputs
@@ -76,7 +76,7 @@ const handleRegister = async (event) => {
     <div>
       <form className={styles.form} onSubmit={handleRegister}>
         <div>
-          {/* <label htmlFor='email'>Correo Electrónico:</label><br /> */}
+          {/* <label htmlFor='eMail'>Correo Electrónico:</label><br /> */}
           <input
             class={styles.campo}
             name="fullName"
@@ -91,14 +91,14 @@ const handleRegister = async (event) => {
 
           <input
             class={styles.campo}
-            name="email"
-            value={newUserData.email}
-            className={errors.email && styles.warning}
+            name="eMail"
+            value={newUserData.eMail}
+            className={errors.eMail && styles.warning}
             placeholder="Email..."
             type="text"
             onChange={handleChange}
           />
-          <p className={errors.email && styles.danger}>{errors.email}</p>
+          <p className={errors.eMail && styles.danger}>{errors.eMail}</p>
           {/* <label htmlFor='password'>Password:</label><br /> */}
           <div className={styles.campo}>
             <input

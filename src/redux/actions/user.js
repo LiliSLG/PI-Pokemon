@@ -25,21 +25,22 @@ export const loginUser = (user) => {
 };
 
 export const registerUser = (user) => {
-  const { fullName, email, password } = user;
-  const endpoint = `${URL_API_USER}/user/register/?fullName=${fullName}&email=${email}&password=${password}`;
+  const { email } = user;
+  const endpoint = `${URL_API_USER}/register`;
+
   return async (dispatch) => {
     try {
       dispatch({ type: actionTypes.LOGIN_REQUEST });
-      const data = {
-        newUser: { fullName, email, password },
-      };
-      const response = await axios.post(endpoint, data);
-      if (response.status === 200) {
+      
+      const response = await axios.post(endpoint, user);
+      const { token } = response.data;
+
+      if (token) {
+        setToken(token);
         dispatch({
           type: actionTypes.LOGIN_SUCCESS,
           payload: email,
         });
-        window.alert("Usuario creado");
       }
     } catch (error) {
       dispatch({ type: actionTypes.LOGIN_FAILURE });
